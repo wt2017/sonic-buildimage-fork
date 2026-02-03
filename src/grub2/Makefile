@@ -22,7 +22,12 @@ $(addprefix $(DEST)/, $(MAIN_TARGET)): $(DEST)/% :
 	# Get grub2 debian packaging
 	export
 	rm -rf ./grub2
-	git clone https://salsa.debian.org/grub-team/grub.git ./grub2
+
+	# Retry git clone with increased buffer size to avoid network issues
+	for i in {1..5}; do \
+			git -c http.postBuffer=524288000 clone https://salsa.debian.org/grub-team/grub.git ./grub2 && break || \
+			(echo "Git clone attempt $$i failed, retrying in 5 seconds..." && rm -rf ./grub2 && sleep 5); \
+	done
 
 	pushd ./grub2
 	git checkout debian/$(GRUB2_VERSION)

@@ -430,14 +430,11 @@ DOCKER_LOG = $(SLAVE_DIR)/$(SLAVE_IMAGE)_$(SLAVE_TAG).log
 
 
 DOCKER_SLAVE_BASE_BUILD = docker build --no-cache \
-		    -t $(SLAVE_BASE_IMAGE):$(SLAVE_BASE_TAG) \
-		    --build-arg http_proxy=$(http_proxy) \
-		    --build-arg https_proxy=$(https_proxy) \
-		    --build-arg no_proxy=$(no_proxy) \
-		    --build-arg SONIC_VERSION_CACHE=$(SONIC_VERSION_CACHE) \
-		    --build-arg SONIC_VERSION_CONTROL_COMPONENTS=$(SONIC_VERSION_CONTROL_COMPONENTS) \
-		    $(SLAVE_DIR) \
-		    $(SPLIT_LOG) $(DOCKER_BASE_LOG)
+                    -t $(SLAVE_BASE_IMAGE):$(SLAVE_BASE_TAG) \
+                    --build-arg SONIC_VERSION_CACHE=$(SONIC_VERSION_CACHE) \
+                    --build-arg SONIC_VERSION_CONTROL_COMPONENTS=$(SONIC_VERSION_CONTROL_COMPONENTS) \
+                    $(SLAVE_DIR) \
+                    $(SPLIT_LOG) $(DOCKER_BASE_LOG)
 
 DOCKER_BASE_PULL = docker pull \
 			$(REGISTRY_SERVER):$(REGISTRY_PORT)$(REGISTRY_SERVER_PATH)/$(SLAVE_BASE_IMAGE):$(SLAVE_BASE_TAG)

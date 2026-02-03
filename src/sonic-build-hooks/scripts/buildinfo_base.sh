@@ -76,6 +76,8 @@ get_url_version()
     /usr/bin/curl -Lfks --retry 5 $package_url | md5sum | cut -d' ' -f1
 }
 
+export -f get_url_version
+
 check_if_url_exist()
 {
     local url=$1
@@ -85,6 +87,8 @@ check_if_url_exist()
         echo n
     fi
 }
+
+export -f check_if_url_exist
 
 get_version_cache_option()
 {
@@ -107,6 +111,7 @@ get_version_cache_option()
 	return 1
 }
 
+export -f get_version_cache_option
 
 # Enable or disable the reproducible mirrors
 set_reproducible_mirrors()
