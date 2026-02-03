@@ -105,7 +105,7 @@ FRR_USER_GID = 300
 #	cache   :  Same as rwcache
 # SONIC_DPKG_CACHE_SOURCE - Stores the cache location details
 SONIC_DPKG_CACHE_METHOD ?= none
-SONIC_DPKG_CACHE_SOURCE ?= /var/cache/sonic/artifacts
+SONIC_DPKG_CACHE_SOURCE ?= $(PWD)/.cache/sonic/artifacts
 
 # Default VS build memory preparation
 DEFAULT_VS_PREPARE_MEM = yes
@@ -184,7 +184,7 @@ INCLUDE_DASH_HA ?= y
 # run as worker node in kubernetes cluster.
 INCLUDE_KUBERNETES ?= n
 
-KUBE_DOCKER_PROXY = http://172.16.1.1:3128/
+KUBE_DOCKER_PROXY = 
 
 # KUBERNETES_VERSION - Set to the required version.
 # K8s_GCR_IO_PAUSE_VERSION - Version of k8s universal pause container image
