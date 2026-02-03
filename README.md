@@ -126,7 +126,7 @@ pip3 install --user jinjanator
 To clone the code repository recursively:
 
 ```shell
-git clone --recurse-submodules https://github.com/sonic-net/sonic-buildimage.git
+git clone --recurse-submodules git@github.com:wt2017/sonic-buildimage-fork.git
 ```
 
 ## Usage
